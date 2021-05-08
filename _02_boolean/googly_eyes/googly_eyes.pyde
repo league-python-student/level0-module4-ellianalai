@@ -7,26 +7,40 @@ You’re going to draw a face with eyes that will follow the mouse!
 
 def setup():
     # 2. Import your image using the following code:
-    # global face
-    # face = loadImage("big_eye_bird.png")
+     global face
+     face = loadImage("big_eye_bird.png")
 
     
     # 3. Set the size of your sketch and the size of your image to be
     # the same by entering the following code in the setup method.
-    # size(800, 600)
-    # face.resize(width, height)
+     size(800, 600)
+     face.resize(800, 600)
 
     
 def draw():
     # 4. Draw your image using:
-    # global face
-    # background(face)
+     global face
+     background(face)
 
     # 5. Place a white ellipse over the left eye of your image.
-    # fill(<your color>)
-    # ellipse(x, y, width, height)
-    println(str(mouseX) + ' ' + str(mouseY))   
-    
+     fill('#FCFCFC')
+     circle(260, 160, 250)
+     println(str(mouseX) + ' ' + str(mouseY))   
+     fill('#121112')
+     if is_mouse_inside_eye(260,160,125,50):
+        circle(mouseX,mouseY,100)
+     else:
+        position = get_eye_position(260,160,125,50)
+        ellipse(position.x, position.y, 50 * 2, 50 * 2)
+     fill('#FCFCFC')
+     circle(500, 160, 250)
+     println(str(mouseX) + ' ' + str(mouseY))   
+     fill('#121112')
+     if is_mouse_inside_eye(500,160,125,50):
+        circle(mouseX,mouseY,100)
+     else:
+        position=get_eye_position(500,160,125,50)
+        ellipse(position.x, position.y, 50 * 2, 50 * 2)
     # 6. Now add a pupil (the black part) to the left eye earlier.
     # Use the pupil x and y variables for the position.
     
@@ -38,9 +52,9 @@ def draw():
     # Use the is_mouse_inside_eye() function for this.
     #
     # If the mouse is not inside the eye, call the get_eye_position()
-    # function:
-    # position = get_eye_position(left_eye_x, left_eye_y, eye_radius, pupil_radius)
-    # ellipse(position.x, position.y, pupil_radius * 2, pupil_radius * 2)
+     #function:
+    
+    
     
     # 9. Repeat the steps above for the right eye and observe the googly eyes!
 
