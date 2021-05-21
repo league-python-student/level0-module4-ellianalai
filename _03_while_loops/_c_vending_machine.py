@@ -38,12 +38,16 @@ if __name__ == '__main__':
     while money_in_dollars>0:
         money_spent = vending_machine(money_in_dollars)
         money_in_dollars= money_in_dollars-money_spent
-        if money_spent==0:
-            messagebox.showinfo(title='',message='You have $' +  str(money_in_dollars))
-            break
-        elif money_spent>0:
-            messagebox.showinfo(title='', message='You have $' + str(money_in_dollars))
 
+
+        if money_spent>0:
+            messagebox.showinfo(title='', message='You have $' + str(money_in_dollars))
+        if money_spent==0:
+            break
+    if money_in_dollars == 0:
+        messagebox.showinfo(title='', message='You have maximized your money. Congrats!')
+    elif money_in_dollars<0:
+        messagebox.showinfo(title='', message = 'You have overspent!')
 
         # TODO) Call the vending_machine() function and save the money spent
         #  in a variable, for example:
